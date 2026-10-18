@@ -1,0 +1,137 @@
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #111;
+            touch-action: none; /* スマホでのスワイプスクロール防止 */
+        }
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .menu-title {
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.6));
+        }
+        /* テンキーUIのスタイリング */
+        #math-ui {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 320px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid #3b82f6;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            display: none; /* 初期状態は非表示 */
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+        .keypad-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .key-btn {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 15px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.1s;
+            user-select: none;
+        }
+        .key-btn:active {
+            background: #3b82f6;
+            transform: scale(0.95);
+        }
+        .key-enter {
+            background: #2563eb;
+            border-color: #1d4ed8;
+            grid-column: span 3;
+        }
+        .key-clear {
+            background: #ef4444;
+            border-color: #b91c1c;
+        }
+        .key-submit {
+            background: #10b981;
+            border-color: #059669;
+        }
+
+        /* --- ステージ選択メニューのスタイリング --- */
+        #menu-ui {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            max-width: 500px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid #10b981;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+            display: flex; /* 初期状態は表示 */
+            flex-direction: column;
+            align-items: center;
+            z-index: 20;
+        }
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .stage-btn {
+            background: #1e293b;
+            border: 2px solid #475569;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.1s;
+        }
+        .stage-btn:hover, .stage-btn:active {
+            background: #10b981;
+            border-color: #059669;
+            transform: scale(0.95);
+        }
+        .stage-btn-all {
+            background: #ef4444;
+            border-color: #b91c1c;
+            width: 100%;
+            grid-column: span 3;
+            padding: 15px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.1s;
+        }
+        .stage-btn-all:hover, .stage-btn-all:active {
+            background: #f87171;
+            transform: scale(0.95);
+        }
+        .locked {
+            background: #334155 !important;
+            border-color: #1e293b !important;
+            color: #64748b !important;
+            cursor: not-allowed !important;
+            transform: none !important;
+        }
